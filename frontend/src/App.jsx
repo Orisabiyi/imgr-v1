@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 function App() {
   const imageFile = useRef(null);
+  const [uploadImg, setUploadImg] = useState(null);
 
   function handleClick() {
     imageFile.current.click();
@@ -9,10 +10,10 @@ function App() {
 
   function handleFileChange(e) {
     const file = e.target.files[0];
-
     if (file.type !== "image/jpeg" && file.type !== "image/png") return;
 
-    console.log(e.target.value);
+    const imageUrl = URL.createObjectURL(file);
+    setTimeout(() => setUploadImg(imageUrl), 2000);
   }
 
   return (
@@ -24,7 +25,11 @@ function App() {
         </p>
 
         <div className="flex flex-col items-center justify-center gap-[2rem] p-[4rem] bg-blue-200/10 rounded-[1.5rem] w-full outline-dashed outline-2 outline-slate-400/30">
-          <img src="/photos.png" alt="" className="h-[10rem] w-auto" />
+          <img
+            src="/photos.png"
+            alt="image placeholder"
+            className="h-[10rem] w-auto"
+          />
           <p className="text-[1.5rem] text-gray-400">
             Drag & Drop your image here
           </p>
