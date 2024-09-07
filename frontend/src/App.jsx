@@ -30,7 +30,8 @@ function App() {
           </p>
         </div>
 
-        <p>Or</p>
+        <p className="text-[1.4rem] lg:text-[1.2rem]">Or</p>
+
         <button
           onClick={handleClick}
           className="bg-blue-600 text-white text-[1.4rem] px-7 py-4 rounded-xl"
