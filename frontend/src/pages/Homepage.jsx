@@ -1,7 +1,9 @@
 import { useRef } from "react";
+import { ImgContext } from "../contexts/ImgContext";
 
 function Homepage() {
   const imageFile = useRef(null);
+  const { setUploadImg } = ImgContext();
 
   function handleClick() {
     imageFile.current.click();
@@ -11,7 +13,8 @@ function Homepage() {
     const file = e.target.files[0];
     if (file.type !== "image/jpeg" && file.type !== "image/png") return;
 
-    // const imageUrl = URL.createObjectURL(file);
+    const imageUrl = URL.createObjectURL(file);
+    setUploadImg(imageUrl);
   }
 
   return (
