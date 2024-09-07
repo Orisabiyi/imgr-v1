@@ -1,15 +1,23 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import PropTypes from "prop-types";
 
-const imageContext = createContext();
+const imgContext = createContext();
 
-function ImgContext() {
+export function ImgContextProvider({ children }) {
   const [uploadImg, setUploadImg] = useState(null);
 
   return (
-    <imageContext.Provider
-      value={{ uploadImg, setUploadImg }}
-    ></imageContext.Provider>
+    <imgContext.Provider value={{ uploadImg, setUploadImg }}>
+      {children}
+    </imgContext.Provider>
   );
 }
 
-export default ImgContext;
+ImgContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export function ImgContext() {
+  const uploadImg = useContext(imgContext);
+  return uploadImg;
+}
