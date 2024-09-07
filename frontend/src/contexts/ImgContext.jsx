@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 
 const imgContext = createContext();
 
+ImgContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export function ImgContextProvider({ children }) {
   const [uploadImg, setUploadImg] = useState(null);
 
@@ -12,10 +16,6 @@ export function ImgContextProvider({ children }) {
     </imgContext.Provider>
   );
 }
-
-ImgContextProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export function ImgContext() {
   const uploadImg = useContext(imgContext);
