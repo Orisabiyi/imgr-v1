@@ -9,9 +9,12 @@ ImgContextProvider.propTypes = {
 
 export function ImgContextProvider({ children }) {
   const [uploadImg, setUploadImg] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <imgContext.Provider value={{ uploadImg, setUploadImg }}>
+    <imgContext.Provider
+      value={{ uploadImg, setUploadImg, isLoading, setIsLoading }}
+    >
       {children}
     </imgContext.Provider>
   );
