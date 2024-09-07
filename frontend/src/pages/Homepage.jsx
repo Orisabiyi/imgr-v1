@@ -1,8 +1,7 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 function Homepage() {
   const imageFile = useRef(null);
-  const [uploadImg, setUploadImg] = useState(null);
 
   function handleClick() {
     imageFile.current.click();
@@ -12,8 +11,7 @@ function Homepage() {
     const file = e.target.files[0];
     if (file.type !== "image/jpeg" && file.type !== "image/png") return;
 
-    const imageUrl = URL.createObjectURL(file);
-    setTimeout(() => setUploadImg(imageUrl), 2000);
+    // const imageUrl = URL.createObjectURL(file);
   }
 
   return (
