@@ -1,12 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage";
+import { ImgContextProvider } from "./contexts/ImgContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-      </Routes>
+      <ImgContextProvider>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+        </Routes>
+      </ImgContextProvider>
     </BrowserRouter>
   );
 }
