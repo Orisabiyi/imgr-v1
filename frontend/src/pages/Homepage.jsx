@@ -1,8 +1,10 @@
 import { useRef } from "react";
 import { ImgContext } from "../contexts/ImgContext";
+import { useNavigate } from "react-router-dom";
 
 function Homepage() {
   const imageFile = useRef(null);
+  const navigate = useNavigate("");
   const { setUploadImg, setIsLoading } = ImgContext();
 
   function handleClick() {
@@ -24,6 +26,8 @@ function Homepage() {
       setUploadImg(imageUrl);
       setIsLoading(false);
     }, 4000);
+
+    navigate("/uploading");
   }
 
   return (
