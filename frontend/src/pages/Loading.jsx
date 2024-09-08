@@ -6,6 +6,8 @@ function Loading() {
   const navigate = useNavigate("");
   const { isLoading } = ImgContext();
 
+  if (!isLoading) navigate("/");
+
   return (
     <main className="h-screen flex items-center justify-center bg-gray-200">
       {isLoading ? (
