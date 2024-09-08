@@ -16,9 +16,11 @@ function UploadPage() {
   return (
     <main className="flex items-center justify-center h-screen bg-gray-300">
       <section className="flex flex-col items-center justify-center gap-[2rem] px-[2rem] py-[4rem] bg-white w-[85%] sm:w-[55%] lg:w-[30%] rounded-[1rem]">
-        <h1>Uploaded Successfully</h1>
+        <img src="/correct.png" alt="mark icon" className="w-[4rem] h-auto" />
 
-        <div className="rounded-xl h-[35rem]">
+        <h1 className="text-[2rem]">Uploaded Successfully!</h1>
+
+        <div className="rounded-xl h-[30rem]">
           <img
             src={uploadImg}
             alt="uploaded image"
@@ -26,9 +28,9 @@ function UploadPage() {
           />
         </div>
 
-        <div className="flex items-start w-full">
-          <input type="text" />
-          <button>Copy Link</button>
+        <div className="flex items-start w-full bg-gray-300/30">
+          <input type="text" className="w-[80%] bg-transparent" />
+          <button className="flex-1 bg-blue-500">Copy Link</button>
         </div>
       </section>
     </main>
