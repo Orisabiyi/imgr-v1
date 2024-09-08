@@ -9,7 +9,7 @@ function Loading() {
 
   useEffect(
     function () {
-      if (!isLoading) navigate("/");
+      if (!isLoading) navigate("/uploaded");
     },
     [navigate, isLoading]
   );
@@ -22,7 +22,7 @@ function Loading() {
           <BarLoader color="#2563eb" data-testid="loader" />
         </section>
       ) : (
-        navigate("/uploaded")
+        <div>Redirecting...</div>
       )}
     </main>
   );
