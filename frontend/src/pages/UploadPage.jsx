@@ -1,11 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { ImgContext } from "../contexts/ImgContext";
+import { useEffect } from "react";
 
 function UploadPage() {
   const navigate = useNavigate("");
   const { uploadImg } = ImgContext();
 
-  if (!uploadImg) navigate("/");
+  useEffect(
+    function () {
+      if (uploadImg === null) navigate("/");
+    },
+    [navigate, uploadImg]
+  );
 
   return (
     <main className="flex items-center justify-center h-screen">

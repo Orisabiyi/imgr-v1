@@ -6,15 +6,15 @@ import UploadPage from "./pages/UploadPage";
 
 function App() {
   return (
-    <BrowserRouter>
-      <ImgContextProvider>
+    <ImgContextProvider>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/uploading" element={<Loading />} />
           <Route path="/uploaded" element={<UploadPage />} />
         </Routes>
-      </ImgContextProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ImgContextProvider>
   );
 }
 
