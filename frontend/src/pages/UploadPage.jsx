@@ -14,12 +14,16 @@ function UploadPage() {
   );
 
   return (
-    <main className="flex items-center justify-center h-screen">
-      <section className="flex flex-col items-center justify-center gap-[2rem] px-[2rem] py-[4rem] w-[85%] sm:w-[60%] lg:w-[30%]">
+    <main className="flex items-center justify-center h-screen bg-gray-300">
+      <section className="flex flex-col items-center justify-center gap-[2rem] px-[2rem] py-[4rem] bg-white w-[85%] sm:w-[55%] lg:w-[30%] rounded-[1rem]">
         <h1>Uploaded Successfully</h1>
 
-        <div className="rounded-xl">
-          <img src={uploadImg} alt="uploaded image" className="rounded-xl" />
+        <div className="rounded-xl h-[35rem]">
+          <img
+            src={uploadImg}
+            alt="uploaded image"
+            className="rounded-[1.5rem] w-full h-full block"
+          />
         </div>
 
         <div className="flex items-start w-full">
