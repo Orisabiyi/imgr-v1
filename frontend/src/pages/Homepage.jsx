@@ -3,18 +3,27 @@ import { ImgContext } from "../contexts/ImgContext";
 
 function Homepage() {
   const imageFile = useRef(null);
-  const { setUploadImg } = ImgContext();
+  const { setUploadImg, setIsLoading } = ImgContext();
 
   function handleClick() {
     imageFile.current.click();
   }
 
-  function handleFileChange(e) {
+  async function handleFileChange(e) {
+    setIsLoading(true);
+
     const file = e.target.files[0];
-    if (file.type !== "image/jpeg" && file.type !== "image/png") return;
+    if (!file) return setIsLoading(false);
+
+    if (file.type !== "image/jpeg" && file.type !== "image/png") {
+      return setIsLoading(false);
+    }
 
     const imageUrl = URL.createObjectURL(file);
-    setUploadImg(imageUrl);
+    setTimeout(() => {
+      setUploadImg(imageUrl);
+      setIsLoading(false);
+    }, 4000);
   }
 
   return (
