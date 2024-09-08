@@ -1,11 +1,16 @@
+import { ImgContext } from "../contexts/ImgContext";
 import { BarLoader } from "react-spinners";
 
 function Loading() {
+  const { isLoading } = ImgContext();
+
   return (
     <main>
-      <section>
-        <BarLoader />
-      </section>
+      {isLoading && (
+        <section>
+          <BarLoader />
+        </section>
+      )}
     </main>
   );
 }
