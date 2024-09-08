@@ -1,12 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { ImgContext } from "../contexts/ImgContext";
 import { BarLoader } from "react-spinners";
+import { useEffect } from "react";
 
 function Loading() {
   const navigate = useNavigate("");
   const { isLoading } = ImgContext();
 
-  if (!isLoading) navigate("/");
+  useEffect(
+    function () {
+      if (!isLoading) navigate("/");
+    },
+    [navigate, isLoading]
+  );
 
   return (
     <main className="h-screen flex items-center justify-center bg-gray-200">
