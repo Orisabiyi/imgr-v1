@@ -13,3 +13,7 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+
+section [data-testid="loader"] {
+  width: 100% !important;
+}
