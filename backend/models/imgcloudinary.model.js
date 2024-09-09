@@ -8,7 +8,7 @@ cloudinary.config({
   secure: true,
 });
 
-const uploadImg = async function (imgPath) {
+const uploader = async function (imgPath) {
   try {
     const options = {
       use_filename: true,
@@ -16,8 +16,8 @@ const uploadImg = async function (imgPath) {
       overwrite: true,
     };
 
-    const uploader = await cloudinary.uploader.upload(imgPath, options);
-    if (!uploader) throw new Error();
+    const result = await cloudinary.uploader.upload(imgPath, options);
+    if (!result) throw new Error();
 
     console.log(uploader);
   } catch (error) {
@@ -28,5 +28,5 @@ const uploadImg = async function (imgPath) {
 console.log(cloudinary.config());
 
 module.exports = {
-  uploadImg,
+  uploader,
 };
