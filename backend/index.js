@@ -2,9 +2,13 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
+const imgRouter = require("./routes/image.route");
+
 const app = express();
 
 app.get("/", (req, res) => res.status(200).json({ message: "Hello World" }));
+
+app.use("/api/image", imgRouter);
 
 mongoose
   .connect(
