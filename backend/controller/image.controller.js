@@ -2,7 +2,7 @@ const { uploader } = require("../models/imgcloudinary.model");
 
 const uploadImage = async function (req, res) {
   try {
-    const { imgPath } = req;
+    const { imgPath } = req.body;
     const uploadImg = await uploader(imgPath);
 
     console.log(uploadImg);
