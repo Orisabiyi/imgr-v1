@@ -19,7 +19,7 @@ const uploader = async function (imgPath) {
     const result = await cloudinary.uploader.upload(imgPath, options);
     if (!result) throw new Error();
 
-    console.log(result);
+    return result;
   } catch (error) {
     throw error;
   }

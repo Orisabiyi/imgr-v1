@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const imgRouter = require("./routes/image.route");
 
 const app = express();
+app.use(express.json());
 
 app.get("/", (req, res) => res.status(200).json({ message: "Hello World" }));
 
