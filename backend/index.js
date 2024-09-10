@@ -12,7 +12,7 @@ app.use("/api/image", imgRouter);
 
 mongoose
   .connect(
-    `mongodb+srv://orisabiyidavid:${process.env.DB_PASSWORD}@img-data.n7vgx.mongodb.net/img-db?retryWrites=true&w=majority&appName=img-data`
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@img-data.n7vgx.mongodb.net/img-db?retryWrites=true&w=majority&appName=img-data`
   )
   .then(() => {
     console.log("Database is connected successfully");
