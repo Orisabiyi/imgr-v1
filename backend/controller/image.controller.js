@@ -17,7 +17,7 @@ const uploadImage = async function (req, res) {
       display_name: displayName,
     } = await uploader(imgPath);
 
-    const storeImage = await Image({
+    const storeImage = await Image.create({
       width,
       height,
       assetId,
