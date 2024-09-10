@@ -20,11 +20,15 @@ const uploadImage = async function (req, res) {
     const storeImage = await Image({
       width,
       height,
-      assedId,
+      assetId,
       imgUrl,
       uploadedAt,
       displayName,
     });
+
+    res
+      .status(201)
+      .json({ message: "Image as been uploaded successfully", storeImage });
   } catch (error) {
     res.status(500).json({ error });
   }
