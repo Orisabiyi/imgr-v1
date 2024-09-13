@@ -30,7 +30,7 @@ const uploadImage = async function (req, res) {
       .status(201)
       .json({ message: "Image as been uploaded successfully", storeImage });
   } catch (error) {
-    res.status(500).json({ error });
+    res.status(500).json({ error: error.message });
   }
 };
 
