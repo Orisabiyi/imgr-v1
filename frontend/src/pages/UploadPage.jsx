@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { ImgContext } from "../contexts/ImgContext";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 function UploadPage() {
   const navigate = useNavigate("");
+  const copyRef = useRef();
   const { curImg } = ImgContext();
 
   useEffect(
@@ -12,6 +13,11 @@ function UploadPage() {
     },
     [navigate, curImg]
   );
+
+  function handleCopy() {
+    navigator.clipboard.writeText(copyRef.current.value);
+    alert("Link is copied to clipboard");
+  }
 
   return (
     <main className="flex items-center justify-center h-screen bg-gray-300">
@@ -28,9 +34,20 @@ function UploadPage() {
           />
         </div>
 
-        <div className="flex items-start w-full bg-gray-300/30">
-          <input type="text" className="w-[80%] bg-transparent" />
-          <button className="flex-1 bg-blue-500">Copy Link</button>
+        <div className="flex items-center w-full bg-gray-300/30 rounded-[1rem]">
+          <input
+            type="text"
+            className="w-[80%] bg-transparent outline-none px-[1rem] py-[1.5rem]"
+            disabled
+            value={curImg}
+            ref={copyRef}
+          />
+          <button
+            className="flex-1 bg-blue-500 px-[1rem] py-[1rem] rounded-[.5rem] w-[2rem] block"
+            onClick={handleCopy}
+          >
+            Copy Link
+          </button>
         </div>
       </section>
     </main>
