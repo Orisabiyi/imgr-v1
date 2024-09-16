@@ -3,7 +3,7 @@ import { ImgContext } from "../contexts/ImgContext";
 
 function Homepage() {
   const imageFile = useRef(null);
-  const { _, setIsLoading } = ImgContext();
+  const { setIsLoading } = ImgContext();
 
   function handleSubmit() {
     imageFile.current.click();
