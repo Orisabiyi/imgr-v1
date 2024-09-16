@@ -43,7 +43,7 @@ function UploadPage() {
             ref={copyRef}
           />
           <button
-            className="flex-1 bg-blue-500 px-[1rem] py-[1rem] rounded-[.5rem] w-[2rem] block"
+            className="flex-1 bg-blue-500 px-[1rem] py-[1rem] rounded-[.5rem] w-[2rem] block text-white font-medium"
             onClick={handleCopy}
           >
             Copy Link
