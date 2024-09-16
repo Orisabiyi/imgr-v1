@@ -3,63 +3,19 @@ import { ImgContext } from "../contexts/ImgContext";
 
 function Homepage() {
   const fileInputRef = useRef();
-  const { setUploadImg, uploadImg } = ImgContext();
+  const { setUploadImg } = ImgContext();
 
   function handleFileChange(e) {
     setUploadImg(e.target.files[0]);
   }
 
-  function handleUpload() {
-    const formData = new FormData();
-    formData.append("upload", uploadImg);
-    console.log(formData);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-
+  function handleButtonClick() {
     fileInputRef.current.click();
   }
 
-  /*
-  async function handleFileChange(e) {
-    setIsLoading(true);
-
-    const file = e.target.files[0];
-    if (!file) return setIsLoading(false);
-
-    if (file.type !== "image/jpeg" && file.type !== "image/png") {
-      return setIsLoading(false);
-    }
-
-    try {
-      console.log(file);
-
-      const res = await fetch(`https://imgr-v1.onrender.com/api/image/upload`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          imgPath: file.name,
-        }),
-      });
-
-      const data = await res.json();
-      console.log(data);
-    } catch (error) {
-      console.error("Error uploading image:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  } */
-
   return (
     <main className="flex items-center justify-center h-screen bg-gray-200">
-      <form
-        className="bg-white w-[85%] sm:w-[60%] lg:w-[30%] py-[4rem] px-[2rem] flex flex-col items-center justify-center gap-[1rem] md:gap-[2rem] rounded-[1rem]"
-        onSubmit={handleSubmit}
-      >
+      <form className="bg-white w-[85%] sm:w-[60%] lg:w-[30%] py-[4rem] px-[2rem] flex flex-col items-center justify-center gap-[1rem] md:gap-[2rem] rounded-[1rem]">
         <h1 className="text-[2rem]">Upload your image</h1>
         <p className="text-[1.4rem] mb-[1rem] lg:text-[1.2rem]">
           File should be jpeg, png, ....
@@ -80,6 +36,7 @@ function Homepage() {
 
         <button
           type="submit"
+          onClick={handleButtonClick}
           className="bg-blue-600 text-white text-[1.4rem] px-7 py-4 rounded-xl"
         >
           Choose a file
