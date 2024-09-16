@@ -5,15 +5,19 @@ import { useNavigate } from "react-router-dom";
 function Homepage() {
   const fileInputRef = useRef();
   const navigate = useNavigate("");
-  const { setUploadImg } = ImgContext();
+  const { setUploadImg, setIsLoading } = ImgContext();
 
   function handleFileChange(e) {
     setUploadImg(e.target.files[0]);
+
+    if (e.target.files.length !== 1) return;
+
+    setIsLoading(true);
+    navigate("/uploading");
   }
 
   function handleButtonClick() {
     fileInputRef.current.click();
-    navigate("/uploading");
   }
 
   return (
