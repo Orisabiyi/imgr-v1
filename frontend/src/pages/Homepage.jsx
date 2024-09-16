@@ -1,16 +1,17 @@
-import { useRef } from "react";
 import { ImgContext } from "../contexts/ImgContext";
 
 function Homepage() {
-  const imageFile = useRef(null);
-  const { setIsLoading } = ImgContext();
+  const { setUploadImg } = ImgContext();
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    imageFile.current.click();
+  function handleFileChange(e) {
+    setUploadImg(e.target.files[0]);
   }
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+  }
+
+  /*
   async function handleFileChange(e) {
     setIsLoading(true);
 
@@ -41,7 +42,7 @@ function Homepage() {
     } finally {
       setIsLoading(false);
     }
-  }
+  } */
 
   return (
     <main className="flex items-center justify-center h-screen bg-gray-200">
@@ -74,12 +75,7 @@ function Homepage() {
           Choose a file
         </button>
 
-        <input
-          type="file"
-          ref={imageFile}
-          onChange={handleFileChange}
-          className="hidden"
-        />
+        <input type="file" onChange={handleFileChange} className="hidden" />
       </form>
     </main>
   );
