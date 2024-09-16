@@ -21,13 +21,26 @@ function Homepage() {
       return setIsLoading(false);
     }
 
-    const imageUrl = URL.createObjectURL(file);
-    setTimeout(() => {
-      setUploadImg(imageUrl);
-      setIsLoading(false);
-    }, 4000);
+    try {
+      console.log(file);
 
-    navigate("/uploading");
+      const res = await fetch(`https://imgr-v1.onrender.com/api/image/upload`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          imgPath: file.name,
+        }),
+      });
+
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
