@@ -24,7 +24,7 @@ function Homepage() {
     <main className="flex items-center justify-center h-screen bg-gray-200 relative overflow-hidden">
       <section
         className={`absolute top-[2rem] right-[-25rem] bg-white w-[15%] px-[2rem] py-[1rem] text-[1.6rem] border-l-orange-700 border-l-[.5rem] rounded-[.5rem] ${
-          error ? "right-[25rem]" : ""
+          error ? "right-[4rem]" : ""
         }`}
       >
         Hello World
