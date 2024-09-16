@@ -1,14 +1,24 @@
+import { useRef } from "react";
 import { ImgContext } from "../contexts/ImgContext";
 
 function Homepage() {
-  const { setUploadImg } = ImgContext();
+  const fileInputRef = useRef();
+  const { setUploadImg, uploadImg } = ImgContext();
 
   function handleFileChange(e) {
     setUploadImg(e.target.files[0]);
   }
 
-  async function handleSubmit(e) {
+  function handleUpload() {
+    const formData = new FormData();
+    formData.append("upload", uploadImg);
+    console.log(formData);
+  }
+
+  function handleSubmit(e) {
     e.preventDefault();
+
+    fileInputRef.current.click();
   }
 
   /*
@@ -75,7 +85,12 @@ function Homepage() {
           Choose a file
         </button>
 
-        <input type="file" onChange={handleFileChange} className="hidden" />
+        <input
+          type="file"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          className="hidden"
+        />
       </form>
     </main>
   );
