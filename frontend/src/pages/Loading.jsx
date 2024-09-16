@@ -29,18 +29,17 @@ function Loading() {
 
           const data = await res.json();
           setCurImg(data.storeImage.imgUrl);
+
           if (!data.storeImage) return navigate("/");
 
           setIsLoading(false);
-          navigate("uploaded");
+          navigate("/uploaded");
         } catch (error) {
           setError(error.message);
         }
       }
 
       uploadImage();
-
-      if (!isLoading) navigate("uploaded");
     },
     [navigate, isLoading, uploadImg, setIsLoading, setError, setCurImg]
   );
