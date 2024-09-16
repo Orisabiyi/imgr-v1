@@ -6,7 +6,8 @@ const cors = require("cors");
 const imgRouter = require("./routes/image.route");
 
 const app = express();
-app.use(express.json());
+
+// setting cors
 app.use(cors());
 
 app.get("/", (req, res) => res.status(200).json({ message: "Hello World" }));
