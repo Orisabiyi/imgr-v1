@@ -5,7 +5,8 @@ import { useEffect } from "react";
 
 function Loading() {
   const navigate = useNavigate("");
-  const { isLoading, setIsLoading, uploadImg, setError } = ImgContext();
+  const { isLoading, setIsLoading, uploadImg, setError, setCurImg } =
+    ImgContext();
 
   useEffect(
     function () {
@@ -27,7 +28,7 @@ function Loading() {
           if (!res.ok) throw new Error("Can't upload image");
 
           const data = await res.json();
-          console.log(data.storeImage);
+          setCurImg(data.storeImage.imgUrl);
           if (!data.storeImage) return navigate("/");
 
           setIsLoading(false);
@@ -41,7 +42,7 @@ function Loading() {
 
       if (!isLoading) navigate("uploaded");
     },
-    [navigate, isLoading, uploadImg, setIsLoading, setError]
+    [navigate, isLoading, uploadImg, setIsLoading, setError, setCurImg]
   );
 
   return (
