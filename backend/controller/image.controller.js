@@ -5,6 +5,7 @@ const validateImagePath = require("../utils/validate.util");
 const uploadImage = async function (req, res) {
   try {
     const filePath = req.file.path;
+
     if (!validateImagePath(filePath))
       return res.status(400).json({ message: "Invalid Image Path" });
 
