@@ -5,13 +5,35 @@ import { useEffect } from "react";
 
 function Loading() {
   const navigate = useNavigate("");
-  const { isLoading } = ImgContext();
+  const { isLoading, uploadImg } = ImgContext();
 
   useEffect(
     function () {
+      async function uploadImage() {
+        try {
+          const formData = new FormData();
+          formData.append("upload", uploadImg);
+
+          const res = await fetch(
+            `https://imgr-v1.onrender.com/api/image/upload`,
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
+
+          const data = await res.json();
+          console.log(data);
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+
+      uploadImage();
+
       if (!isLoading) navigate("/uploaded");
     },
-    [navigate, isLoading]
+    [navigate, isLoading, uploadImg]
   );
 
   return (
