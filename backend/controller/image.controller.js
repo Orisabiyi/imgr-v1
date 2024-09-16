@@ -1,3 +1,4 @@
+const fs = require("fs");
 const { uploader } = require("../models/imgcloudinary.model");
 const Image = require("../models/image.model");
 const validateImagePath = require("../utils/validate.util");
@@ -5,9 +6,6 @@ const validateImagePath = require("../utils/validate.util");
 const uploadImage = async function (req, res) {
   try {
     const filePath = req.file.path;
-
-    if (!validateImagePath(filePath))
-      return res.status(400).json({ message: "Invalid Image Path" });
 
     const {
       width,
@@ -17,6 +15,8 @@ const uploadImage = async function (req, res) {
       created_at: uploadedAt,
       display_name: displayName,
     } = await uploader(filePath);
+
+    fs.unlinkSync(filePath);
 
     const storeImage = await Image.create({
       width,
