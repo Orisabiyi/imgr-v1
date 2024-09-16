@@ -5,12 +5,14 @@ import { useEffect } from "react";
 
 function Loading() {
   const navigate = useNavigate("");
-  const { isLoading, setIsLoading, uploadImg } = ImgContext();
+  const { isLoading, setIsLoading, uploadImg, setError } = ImgContext();
 
   useEffect(
     function () {
       async function uploadImage() {
         try {
+          setError("");
+
           const formData = new FormData();
           formData.append("file", uploadImg);
 
@@ -22,13 +24,15 @@ function Loading() {
             }
           );
 
+          if (!res.ok) throw new Error("Can't upload image");
+
           const data = await res.json();
           if (!data.storeImage) return navigate("/");
 
           setIsLoading(false);
           navigate("uploaded");
         } catch (error) {
-          console.log(error.message);
+          setError(error.message);
         }
       }
 
@@ -36,7 +40,7 @@ function Loading() {
 
       if (!isLoading) navigate("/uploaded");
     },
-    [navigate, isLoading, uploadImg, setIsLoading]
+    [navigate, isLoading, uploadImg, setIsLoading, setError]
   );
 
   return (
