@@ -21,7 +21,11 @@ function Homepage() {
   }
 
   return (
-    <main className="flex items-center justify-center h-screen bg-gray-200">
+    <main className="flex items-center justify-center h-screen bg-gray-200 relative">
+      <section className="absolute top-[2rem] right-[4rem] bg-white w-[15%] px-[2rem] py-[1rem] text-[1.6rem] border-l-orange-700 border-l-[.5rem] rounded-[.5rem]">
+        Hello World
+      </section>
+
       <section className="bg-white w-[85%] sm:w-[60%] lg:w-[30%] py-[4rem] px-[2rem] flex flex-col items-center justify-center gap-[1rem] md:gap-[2rem] rounded-[1rem]">
         <h1 className="text-[2rem]">Upload your image</h1>
         <p className="text-[1.4rem] mb-[1rem] lg:text-[1.2rem]">
