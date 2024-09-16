@@ -4,13 +4,13 @@ import { useEffect } from "react";
 
 function UploadPage() {
   const navigate = useNavigate("");
-  const { uploadImg } = ImgContext();
+  const { curImg } = ImgContext();
 
   useEffect(
     function () {
-      if (uploadImg === null) navigate("/");
+      if (curImg === "") navigate("/");
     },
-    [navigate, uploadImg]
+    [navigate, curImg]
   );
 
   return (
@@ -22,7 +22,7 @@ function UploadPage() {
 
         <div className="rounded-xl h-[30rem]">
           <img
-            src={uploadImg}
+            src={curImg}
             alt="uploaded image"
             className="rounded-[1.5rem] w-full h-full block"
           />
