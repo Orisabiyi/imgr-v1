@@ -27,6 +27,7 @@ function Loading() {
           if (!res.ok) throw new Error("Can't upload image");
 
           const data = await res.json();
+          console.log(data.storeImage);
           if (!data.storeImage) return navigate("/");
 
           setIsLoading(false);
@@ -38,7 +39,7 @@ function Loading() {
 
       uploadImage();
 
-      if (!isLoading) navigate("/uploaded");
+      if (!isLoading) navigate("uploaded");
     },
     [navigate, isLoading, uploadImg, setIsLoading, setError]
   );
