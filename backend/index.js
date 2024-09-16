@@ -2,13 +2,11 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const multer = require("multer");
 const imgRouter = require("./routes/image.route");
 const cors = require("cors");
 
 // instantiating express app
 const app = express();
-const upload = multer({ dest: "uploads/" });
 
 // setting cors
 app.use(cors());
@@ -16,7 +14,7 @@ app.use(cors());
 app.get("/", (req, res) => res.status(200).json({ message: "Hello World" }));
 
 // route to upload image
-app.use("/api/image", upload.single("file"), imgRouter);
+app.use("/api/image", imgRouter);
 
 // connecting to mongodb
 mongoose
