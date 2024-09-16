@@ -5,7 +5,9 @@ function Homepage() {
   const imageFile = useRef(null);
   const { setIsLoading } = ImgContext();
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
+
     imageFile.current.click();
   }
 
