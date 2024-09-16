@@ -18,7 +18,7 @@ function Homepage() {
 
   return (
     <main className="flex items-center justify-center h-screen bg-gray-200">
-      <form className="bg-white w-[85%] sm:w-[60%] lg:w-[30%] py-[4rem] px-[2rem] flex flex-col items-center justify-center gap-[1rem] md:gap-[2rem] rounded-[1rem]">
+      <section className="bg-white w-[85%] sm:w-[60%] lg:w-[30%] py-[4rem] px-[2rem] flex flex-col items-center justify-center gap-[1rem] md:gap-[2rem] rounded-[1rem]">
         <h1 className="text-[2rem]">Upload your image</h1>
         <p className="text-[1.4rem] mb-[1rem] lg:text-[1.2rem]">
           File should be jpeg, png, ....
@@ -38,7 +38,6 @@ function Homepage() {
         <p className="text-[1.4rem] lg:text-[1.2rem]">Or</p>
 
         <button
-          type="submit"
           onClick={handleButtonClick}
           className="bg-blue-600 text-white text-[1.4rem] px-7 py-4 rounded-xl"
         >
@@ -51,7 +50,7 @@ function Homepage() {
           onChange={handleFileChange}
           className="hidden"
         />
-      </form>
+      </section>
     </main>
   );
 }
