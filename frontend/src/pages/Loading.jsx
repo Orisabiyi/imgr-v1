@@ -14,10 +14,13 @@ function Loading() {
           const formData = new FormData();
           formData.append("file", uploadImg);
 
-          const res = await fetch("http://localhost:3000/api/image/upload", {
-            method: "POST",
-            body: formData,
-          });
+          const res = await fetch(
+            "https://imgr-v1.onrender.com/api/image/upload",
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
 
           const data = await res.json();
           console.log(data);
