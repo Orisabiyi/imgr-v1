@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 function Loading() {
   const navigate = useNavigate("");
-  const { isLoading, uploadImg } = ImgContext();
+  const { isLoading, setIsLoading, uploadImg } = ImgContext();
 
   useEffect(
     function () {
@@ -23,7 +23,10 @@ function Loading() {
           );
 
           const data = await res.json();
-          console.log(data);
+          if (!data.storeImage) return navigate("/");
+
+          setIsLoading(false);
+          navigate("uploaded");
         } catch (error) {
           console.log(error.message);
         }
@@ -33,7 +36,7 @@ function Loading() {
 
       if (!isLoading) navigate("/uploaded");
     },
-    [navigate, isLoading, uploadImg]
+    [navigate, isLoading, uploadImg, setIsLoading]
   );
 
   return (
