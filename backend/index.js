@@ -13,8 +13,10 @@ app.use(cors());
 
 app.get("/", (req, res) => res.status(200).json({ message: "Hello World" }));
 
+// route to upload image
 app.use("/api/image", imgRouter);
 
+// connecting to mongodb
 mongoose
   .connect(
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@img-data.n7vgx.mongodb.net/img-db?retryWrites=true&w=majority&appName=img-data`
