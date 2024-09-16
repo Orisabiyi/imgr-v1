@@ -1,8 +1,10 @@
 import { useRef } from "react";
 import { ImgContext } from "../contexts/ImgContext";
+import { useNavigate } from "react-router-dom";
 
 function Homepage() {
   const fileInputRef = useRef();
+  const navigate = useNavigate("");
   const { setUploadImg } = ImgContext();
 
   function handleFileChange(e) {
@@ -11,6 +13,7 @@ function Homepage() {
 
   function handleButtonClick() {
     fileInputRef.current.click();
+    navigate("/uploading");
   }
 
   return (
