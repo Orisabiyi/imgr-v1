@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const imgRouter = require("./routes/image.route");
 
+// instantiating express app
 const app = express();
 
 // setting cors
