@@ -3,15 +3,23 @@ import { ImgContext } from "../contexts/ImgContext";
 import { useEffect, useRef } from "react";
 
 function UploadPage() {
-  const navigate = useNavigate("");
   const copyRef = useRef();
-  const { curImg } = ImgContext();
+  const { curImg, setCurImg } = ImgContext();
 
   useEffect(
     function () {
-      if (curImg === "") navigate("/");
+      const image = JSON.parse(sessionStorage.getItem("imageUrl"));
+      if (image) setCurImg(image);
     },
-    [navigate, curImg]
+    [setCurImg]
+  );
+
+  useEffect(
+    function () {
+      sessionStorage.clear();
+      sessionStorage.setItem("imageUrl", JSON.stringify(curImg));
+    },
+    [curImg]
   );
 
   function handleCopy() {
