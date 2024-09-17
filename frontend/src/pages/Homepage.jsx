@@ -43,7 +43,7 @@ function Homepage() {
         {error}
       </section>
 
-      <section className="bg-white w-[85%] sm:w-[60%] lg:w-[30%] py-[4rem] px-[2rem] flex flex-col items-center justify-center gap-[1rem] md:gap-[2rem] rounded-[1rem]">
+      <section className="bg-white w-[95%] sm:w-[80%] lg:w-[30%] py-[4rem] px-[2rem] flex flex-col items-center justify-center gap-[1rem] md:gap-[2rem] rounded-[1rem]">
         <h1 className="text-[2rem]">Upload your image</h1>
         <p className="text-[1.4rem] mb-[1rem] lg:text-[1.2rem]">
           File should be jpeg, png, ....

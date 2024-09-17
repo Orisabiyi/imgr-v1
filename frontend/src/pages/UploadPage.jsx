@@ -28,7 +28,7 @@ function UploadPage() {
 
   return (
     <main className="flex items-center justify-center h-screen bg-gray-300">
-      <section className="flex flex-col items-center justify-center gap-[2rem] px-[2rem] py-[4rem] bg-white w-[85%] sm:w-[95%] lg:w-[30%] rounded-[1rem]">
+      <section className="flex flex-col items-center justify-center gap-[2rem] px-[2rem] py-[4rem] bg-white w-[95%] sm:w-[80%] lg:w-[30%] rounded-[1rem]">
         <img src="/correct.png" alt="mark icon" className="w-[4rem] h-auto" />
 
         <h1 className="text-[2rem]">Uploaded Successfully!</h1>
