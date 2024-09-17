@@ -7,15 +7,18 @@ function Homepage() {
   const navigate = useNavigate("");
   const { setUploadImg, setIsLoading, error, setError } = ImgContext();
 
-  useEffect(function () {
-    if (error) {
-      const timer = setTimeout(function () {
-        setError("");
-      }, 3000);
+  useEffect(
+    function () {
+      if (error) {
+        const timer = setTimeout(function () {
+          setError("");
+        }, 3000);
 
-      return () => clearTimeout(timer);
-    }
-  });
+        return () => clearTimeout(timer);
+      }
+    },
+    [error, setError]
+  );
 
   function handleFileChange(e) {
     setUploadImg(e.target.files[0]);

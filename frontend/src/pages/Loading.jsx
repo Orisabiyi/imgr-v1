@@ -49,9 +49,12 @@ function Loading() {
     [navigate, isLoading, uploadImg, setIsLoading, setError, setCurImg]
   );
 
-  useEffect(function () {
-    if (!uploadImg) return navigate("/");
-  });
+  useEffect(
+    function () {
+      if (!uploadImg) return navigate("/");
+    },
+    [navigate, uploadImg]
+  );
 
   return (
     <main className="h-screen flex items-center justify-center bg-gray-200">
