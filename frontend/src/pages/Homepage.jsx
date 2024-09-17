@@ -37,7 +37,7 @@ function Homepage() {
         </p>
 
         <div
-          className="flex flex-col items-center justify-center gap-[2rem] p-[4rem] bg-blue-200/10 rounded-[1.5rem] w-full outline-dashed outline-2 outline-slate-400/30"
+          className="flex flex-col items-center justify-center gap-[2rem] p-[4rem] bg-blue-200/10 rounded-[1.5rem] w-full outline-dashed outline-2 outline-slate-400/30 hover:cursor-pointer"
           onClick={handleButtonClick}
         >
           <img
