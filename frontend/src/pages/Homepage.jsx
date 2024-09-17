@@ -36,18 +36,22 @@ function Homepage() {
           File should be jpeg, png, ....
         </p>
 
-        <div className="flex flex-col items-center justify-center gap-[2rem] p-[4rem] bg-blue-200/10 rounded-[1.5rem] w-full outline-dashed outline-2 outline-slate-400/30">
+        <div
+          className="flex flex-col items-center justify-center gap-[2rem] p-[4rem] bg-blue-200/10 rounded-[1.5rem] w-full outline-dashed outline-2 outline-slate-400/30"
+          onClick={handleButtonClick}
+        >
           <img
             src="/photos.png"
             alt="image placeholder"
             className="h-[10rem] w-auto"
           />
           <p className="text-[1.5rem] text-gray-400">
-            Drag & Drop your image here
+            {/* Drag & Drop your image here */}
+            Click here to upload your image
           </p>
         </div>
 
-        <p className="text-[1.4rem] lg:text-[1.2rem]">Or</p>
+        {/* <p className="text-[1.4rem] lg:text-[1.2rem]">Or</p> */}
 
         <button
           onClick={handleButtonClick}
