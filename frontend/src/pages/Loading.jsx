@@ -25,7 +25,10 @@ function Loading() {
             }
           );
 
-          if (!res.ok) throw new Error("Can't upload image");
+          if (!res.ok)
+            throw new Error(
+              "Can't upload image or your file is not a valid image"
+            );
 
           const data = await res.json();
           setCurImg(data.storeImage.imgUrl);
@@ -36,6 +39,8 @@ function Loading() {
           navigate("/uploaded");
         } catch (error) {
           setError(error.message);
+          setIsLoading(false);
+          navigate("/");
         }
       }
 
