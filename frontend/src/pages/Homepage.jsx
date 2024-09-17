@@ -1,11 +1,21 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ImgContext } from "../contexts/ImgContext";
 import { useNavigate } from "react-router-dom";
 
 function Homepage() {
   const fileInputRef = useRef();
   const navigate = useNavigate("");
-  const { setUploadImg, setIsLoading, error } = ImgContext();
+  const { setUploadImg, setIsLoading, error, setError } = ImgContext();
+
+  useEffect(function () {
+    if (error) {
+      const timer = setTimeout(function () {
+        setError("");
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  });
 
   function handleFileChange(e) {
     setUploadImg(e.target.files[0]);
