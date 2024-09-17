@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { ImgContext } from "../contexts/ImgContext";
 import { useEffect, useRef } from "react";
 
