@@ -75,6 +75,7 @@ function Homepage() {
 
         <input
           type="file"
+          accept=".png, .jpeg, .jpg"
           ref={fileInputRef}
           onChange={handleFileChange}
           className="hidden"
