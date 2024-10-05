@@ -11,7 +11,7 @@ const app = express();
 // setting cors
 app.use(cors());
 
-app.get("/", (req, res) => res.status(200).json({ message: "Hello World" }));
+app.get("/", (_, res) => res.status(200).json({ message: "Hello World" }));
 
 // route to upload image
 app.use("/api/image", imgRouter);
