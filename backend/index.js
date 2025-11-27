@@ -9,7 +9,7 @@ const cors = require("cors");
 const app = express();
 
 // setting cors
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 app.get("/", (_, res) => res.status(200).json({ message: "Hello World" }));
 
