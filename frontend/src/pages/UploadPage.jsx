@@ -33,11 +33,11 @@ function UploadPage() {
 
         <h1 className="text-[2rem]">Uploaded Successfully!</h1>
 
-        <div className="rounded-xl h-[30rem]">
+        <div className="rounded-xl flex items-center justify-center">
           <img
             src={curImg}
             alt="uploaded image"
-            className="rounded-[1.5rem] w-full h-full block"
+            className="rounded-[1.5rem] w-full h-auto block"
           />
         </div>
 
@@ -51,8 +51,7 @@ function UploadPage() {
           />
           <button
             className="flex-1 bg-blue-500 px-[1rem] py-[1rem] rounded-[.5rem] w-[2rem] block text-white font-medium"
-            onClick={handleCopy}
-          >
+            onClick={handleCopy}>
             Copy Link
           </button>
         </div>
