@@ -1,5 +1,7 @@
 import { ImgContext } from "../contexts/ImgContext";
 import { useEffect, useRef } from "react";
+import { IoHomeOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 function UploadPage() {
   const copyRef = useRef();
@@ -28,6 +30,11 @@ function UploadPage() {
 
   return (
     <main className="flex items-center justify-center h-screen bg-gray-300">
+      <Link
+        to="/"
+        className="absolute top-[2rem] left-[10rem] text-[2rem] text-gray-600 hover:text-gray-900">
+        <IoHomeOutline size={40} />
+      </Link>
       <section className="flex flex-col items-center justify-center gap-[2rem] px-[2rem] py-[4rem] bg-white w-[95%] sm:w-[80%] lg:w-[30%] rounded-[1rem]">
         <img src="/correct.png" alt="mark icon" className="w-[4rem] h-auto" />
 
