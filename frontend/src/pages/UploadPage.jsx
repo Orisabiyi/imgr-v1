@@ -33,7 +33,7 @@ function UploadPage() {
       <Link
         to="/"
         className="absolute top-[2rem] left-[10rem] text-[2rem] text-gray-600 hover:text-gray-900">
-        <IoHomeOutline size={40} />
+        <IoHomeOutline size={40} className="text-blue-800" />
       </Link>
       <section className="flex flex-col items-center justify-center gap-[2rem] px-[2rem] py-[4rem] bg-white w-[95%] sm:w-[80%] lg:w-[30%] rounded-[1rem]">
         <img src="/correct.png" alt="mark icon" className="w-[4rem] h-auto" />
